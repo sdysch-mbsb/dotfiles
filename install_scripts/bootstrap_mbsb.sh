@@ -4,13 +4,10 @@ DOTFILES_REPO="https://github.com/sdysch-mbsb/dotfiles"
 DOTFILES_DIR="$HOME/dotfiles/"
 PACKAGE_INSTALLPATH="dotfiles/install_scripts/packages/install"
 
+NVIM_VERSION="v0.11.5"
 TREESITTER_VERSION="v0.26.3"
 
 ZSH_PLUGIN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh_plugins"
-
-# have to install these to local as system wide doesn't necessarily persist after restart
-EZA_INSTALL_DIR="$HOME/.local/bin"
-RG_INSTALL_DIR="$HOME/.local/bin"
 
 # === helpers ===
 log() {
@@ -128,18 +125,57 @@ _install_pre_commit() {
 	log "Setup pre-commit, enable in repos"
 }
 
+_install_tree_sitter() {
+	log "Installing tree-sitter $TREESITTER_VERSION"
+
+	require_cmd curl
+	tmpdir="$(mktemp -d)"
+	pushd "$tmpdir" >/dev/null || exit 1
+
+	curl -L "https://github.com/tree-sitter/tree-sitter/releases/download/$TREESITTER_VERSION/tree-sitter-linux-x64.gz" | gunzip > tree-sitter
+	chmod +x tree-sitter
+	sudo mv tree-sitter /usr/local/bin/tree-sitter
+
+	popd >/dev/null || exit 1
+	rm -rf "$tmpdir"
+}
+
+_install_vim() {
+
+	log "Installing neovim $NVIM_VERSION"
+
+	require_cmd curl
+
+	tmpdir="$(mktemp -d)"
+	pushd "$tmpdir" >/dev/null || exit 1
+
+	curl -L -o nvim.appimage https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim-linux-x86_64.appimage
+	chmod +x nvim.appimage
+	./nvim.appimage --appimage-extract
+
+	mv squashfs-root ~/.local/bin/nvim-app
+	ln -s ~/.local/bin/nvim-app/usr/bin/nvim ~/.local/bin/nvim
+
+	popd > /dev/null || exit 1
+	rm -rf "$tmpdir"
+}
+
 # ====================================================================================================
-#											Main
+#					Main
 # ====================================================================================================
 
 _install_deps
 _install_configs
 _install_fonts
 _install_vim
-# _install_tree_sitter
+_install_tree_sitter
 _change_shell_to_zsh
 _install_zsh
+_install_uv
 _install_starship
 _install_pre_commit
+
+# make directories
+mkdir -p "${XDG_DATA_HOME-$HOME/.local/share}"/zsh
 
 log 'Bootstrap complete'
