@@ -4,7 +4,7 @@ DOTFILES_REPO="https://github.com/sdysch-mbsb/dotfiles"
 DOTFILES_DIR="$HOME/dotfiles/"
 PACKAGE_INSTALLPATH="dotfiles/install_scripts/packages/install"
 
-NVIM_VERSION="v0.11.5"
+NVIM_VERSION="v0.12.6"
 TREESITTER_VERSION="v0.26.3"
 
 ZSH_PLUGIN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh_plugins"
@@ -34,12 +34,15 @@ _install_deps() {
 	    gh \
 	    kitty \
 	    lazygit \
+	    msodbcsql18 \
 	    neovim \
 	    nodejs \
 	    npm \
 	    ripgrep \
 	    stow \
 	    tmux \
+	    unixodbc \
+	    unixodbc-dev \
 	    zsh
 }
 
