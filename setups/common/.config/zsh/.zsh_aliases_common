@@ -192,3 +192,7 @@ alias yz="yazi"
 function md2pdf() {
     pandoc -s -o "${1%.md}.pdf" "$1" --pdf-engine=xelatex
 }
+
+# SQL
+alias lazysql="lazysql --no-telemetry"
+alias lsql="lazysql"
