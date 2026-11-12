@@ -1,3 +1,8 @@
 # source private aliases
 PRIVATE_ALIASES="$ZDOTDIR/.zsh_aliases_private"
 [[ -f $PRIVATE_ALIASES ]] && source $PRIVATE_ALIASES
+
+# load env vars
+MB_ENV_VAR="/etc/profile.d/mbprod-secrets.sh"
+[ -f $MB_ENV_VAR ] && source $MB_ENV_VAR
+
