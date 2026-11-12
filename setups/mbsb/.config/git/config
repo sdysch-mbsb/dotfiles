@@ -5,3 +5,9 @@
 	path = ~/.config/git/aliases
 [include]
 	path = ~/.config/git/settings
+[user]
+	signingkey = ~/.ssh/id_ed25519.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

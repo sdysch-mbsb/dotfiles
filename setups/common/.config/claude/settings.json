@@ -45,7 +45,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "bash /home/sdsd/.config/claude/scripts/statusline-command.sh"
+    "command": "${CLAUDE_CONFIG_DIR:-$HOME/.config/claude}/scripts/statusline-command.sh"
   },
   "theme": "dark",
   "editorMode": "vim"

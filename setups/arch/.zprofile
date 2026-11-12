@@ -35,6 +35,9 @@ export HISTFILE=$XDG_DATA_HOME/zsh/history
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export _Z_DATA=$XDG_DATA_HOME/z
 
+# Claude
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+
 # gnupg & pass
 export GNUPGHOME=$XDG_CONFIG_HOME/gnupg
 export PASSWORD_STORE_DIR=$XDG_DATA_HOME/password-store

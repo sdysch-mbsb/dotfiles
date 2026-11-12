@@ -34,6 +34,9 @@ export HISTFILE=$XDG_DATA_HOME/zsh/history
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export _Z_DATA=$XDG_DATA_HOME/z
 
+# Claude
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+
 # python
 export PYTHONBREAKPOINT=pdbpp.set_trace
 
