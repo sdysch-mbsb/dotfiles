@@ -25,6 +25,10 @@ require_cmd() {
     }
 }
 
+is_ci() {
+    [[ -n "${CI:-}" ]]
+}
+
 _install_deps() {
     log 'Installing system dependencies'
     mkdir -p "$HOME/.local/bin"
@@ -71,7 +75,11 @@ _install_vim() {
 }
 
 _change_shell_to_zsh() {
-	
+	if is_ci; then
+		log 'CI detected; skipping shell change'
+		return
+	fi
+
 	log "Changing shell to zsh"
 	# chsh -s /usr/bin/zsh
 	# sudo chsh -s $(which zsh)
