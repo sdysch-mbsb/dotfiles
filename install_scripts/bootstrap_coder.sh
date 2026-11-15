@@ -27,8 +27,9 @@ require_cmd() {
 
 _install_deps() {
     log 'Installing system dependencies'
+    mkdir -p "$HOME/.local/bin"
     sudo apt-get update -y
-    sudo apt-get install -y bat
+    sudo apt-get install -y bat curl git stow wget
 }
 
 _install_configs() {

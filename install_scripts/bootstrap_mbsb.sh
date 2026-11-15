@@ -22,6 +22,7 @@ require_cmd() {
 
 _install_deps() {
     log 'Installing system dependencies'
+    mkdir -p "$HOME/.local/bin"
     sudo apt-get update -y
     sudo apt-get install -y \
 	    bat \
@@ -31,6 +32,7 @@ _install_deps() {
 	    eza \
 	    fzf \
 	    gh \
+	    git \
 	    git-delta \
 	    kitty \
 	    lazygit \
