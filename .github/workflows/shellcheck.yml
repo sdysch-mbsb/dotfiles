@@ -18,10 +18,11 @@ jobs:
 
           find \
             setups/arch/.local/bin \
+            setups/coder/.local/bin \
             setups/common/.local/bin \
-            setups/work/.local/bin \
+            setups/mbsb/.local/bin \
             install_scripts \
             -type f \
             \( -name '*.sh' -o -perm -111 \) \
             -print0 |
-          xargs -0 shellcheck
+          xargs -0 -r shellcheck
