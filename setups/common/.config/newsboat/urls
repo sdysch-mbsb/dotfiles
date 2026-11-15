@@ -1,169 +1,250 @@
+# Newsboat URLs
+#
+# Tag convention: <domain> <type> <cadence> [source]
+# Domains: forecast, stats, mlops, datascience, python, ai, tech, shipping, linux, arch, nvim, reddit, jobs
+# Types: news, blog, company, research, paper, podcast, newsletter, release
+# Cadence: daily, skim, longread
+#
+# NOTE: Feeds in the "Likely broken / non-RSS" section at the bottom are likely
+# broken or are not RSS/Atom. They are kept for reference but are not expected
+# to update.
+
 ---Unread---
 "query:Unread Articles:unread = \"yes\""
 
----Combined---
+---News---
 "query:🗞️ All daily news:tags # \"daily\" and tags # \"news\""
 "query:🗞️ BBC news:tags # \"daily\" and tags # \"news\" and tags # \"bbc\""
 "query:🗞️ Daily local news:tags # \"daily\" and tags # \"news\" and tags # \"local\""
 "query:🗞️ WSJ news:tags # \"news\" and tags # \"wsj\""
+"query:🗞️ Shipping [All]:tags # \"shipping\" and tags # \"news\""
+"query:🗞️ Company news:tags # \"news\" and tags # \"company\""
+
+---Forecasting---
+"query:🗞️ Forecasting [all]:tags # \"forecast\""
+"query:🗞️ Forecasting [blogs]:tags # \"forecast\" and tags # \"blog\""
+"query:🗞️ Forecasting [papers]:tags # \"forecast\" and tags # \"paper\""
+"query:🗞️ Forecasting [Reddit]:tags # \"forecast\" and tags # \"reddit\""
+
+---MLOps---
+"query:🗞️ MLOps [all]:tags # \"mlops\""
+"query:🗞️ MLOps [newsletters]:tags # \"mlops\" and tags # \"newsletter\""
+"query:🗞️ MLOps [company blogs]:tags # \"mlops\" and tags # \"company\""
+
+---Data science---
+"query:🗞️ Data science:tags # \"datascience\""
+"query:🗞️ Python:tags # \"python\""
+"query:🗞️ Research papers:tags # \"paper\""
+"query:🗞️ Tool releases:tags # \"release\""
+
+---Tech---
 "query:🗞️ Tech [skim]:tags # \"tech\" and tags # \"skim\""
 "query:🗞️ Tech [longread]:tags # \"tech\" and tags # \"longread\""
 "query:🗞️ Tech [company blogs]:tags # \"tech\" and tags # \"company\""
+"query:🗞️ Tech [newsletters]:tags # \"tech\" and tags # \"newsletter\""
 "query:🗞️ Tech [personal blogs]:tags # \"tech\" and tags # \"blog\""
 "query:🗞️ Tech [research]:tags # \"tech\" and tags # \"research\""
-"query:🗞️ Shipping [All]:tags # \"shipping\" and tags # \"news\""
-"query:🗞️ python :tags # \"python\""
-"query:🗞️ Company news:tags # \"news\" and tags # \"company\""
+"query:🗞️ Skim:tags # \"skim\""
+
+---Systems---
 "query:🗞️ Arch official announcements:tags # \"linux\" and tags # \"arch\" and tags # \"official\""
 "query:🗞️ Arch package updates:tags # \"linux\" and tags # \"arch\" and tags # \"packages\""
-"query:🗞️ Research papers:tags # \"arxiv\""
+"query:🗞️ Neovim:tags # \"nvim\""
 "query:🗞️ Reddit:tags # \"reddit\""
-"query:🗞️ neovim:tags # \"nvim\""
-"query:🗞️ Skim:tags # \"skim\""
-"query:🗞️ All jobs:tags # \"jobs\""
 
----Individual---
-# News
+---Other---
+"query:🗞️ Danish:tags # \"lang:dk\""
+"query:🗞️ Podcasts:tags # \"podcast\""
+
+---Individual feeds---
+
+# News: general
 http://feeds.bbci.co.uk/news/rss.xml bbc news daily
 https://feeds.bbci.co.uk/science/rss.xml bbc news science daily
 https://feeds.bbci.co.uk/news/world/rss.xml bbc news world daily
 https://feeds.bbci.co.uk/news/business/rss.xml bbc news business daily
 https://feeds.bbci.co.uk/news/politics/rss.xml bbc news politics daily
-https://feeds.bbci.co.uk/news/england/manchester/rss.xml bbc news local daily manchester
-https://feeds.content.dowjones.io/public/rss/RSSWorldNews wsj world daily news
-https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness wsj business daily news
-https://feeds.content.dowjones.io/public/rss/RSSWSJD wsj tech daily news
-https://feeds.content.dowjones.io/public/rss/RSSMarketsMain wsj markets daily news
-https://www.ft.com/rss/home/uk ft news daily
-
-
+https://feeds.content.dowjones.io/public/rss/RSSWorldNews news daily wsj world
+https://feeds.content.dowjones.io/public/rss/WSJcomUSBusiness news daily wsj business
+https://feeds.content.dowjones.io/public/rss/RSSWSJD news daily wsj tech
+https://feeds.content.dowjones.io/public/rss/RSSMarketsMain news daily wsj markets
+https://www.ft.com/rss/home/uk news daily ft
 https://www.sciencedaily.com/rss/all.xml news daily science
 
-# language, my feeble attempts to read Danish news to practice Danish
-https://www.dr.dk/nyheder/service/feeds/allenyheder news lang:dk
-https://www.dr.dk/mu/feed/mads-monopolet-podcast.xml?format=podcast lang:dk
+# News: local
+https://feeds.bbci.co.uk/news/england/manchester/rss.xml bbc news local daily manchester
+https://www.manchester.ac.uk/about/news/tagfeed/en/tags/headlines news uom
 
-# shipping
---- Shipping ---
-https://www.lloydslist.com/rss-feeds news shipping
-https://www.lloydslist.com/rss news shipping
+# News: Danish
+https://www.dr.dk/nyheder/service/feeds/allenyheder news lang:dk
+https://www.dr.dk/mu/feed/mads-monopolet-podcast.xml?format=podcast news podcast lang:dk
+
+# Shipping
+https://www.lloydslist.com/rss/lloyds-list news shipping
 https://splash247.com/feed/ news shipping
 https://shippingwatch.com/rss/seneste.rss news shipping
 https://maritime-executive.com/articles.rss news shipping
 https://services.tradewindsnews.com/api/feed/rss news shipping
-https://www.joc.com/rss news shipping
+https://www.joc.com/rss.xml news shipping
 https://www.rivieramm.com/Syndication/DF.cfm?f=9&ft=10& news shipping
 https://www.rivieramm.com/Syndication/DF.cfm?f=10&ft=10& news shipping
 https://www.rivieramm.com/Syndication/DF.cfm?f=13&ft=10& news shipping
-
-# misc news
----Misc---
-https://inrix.com/feed/ news inrix company
-https://flyr.com/feed/ news flyr company
-https://www.manchester.ac.uk/about/news/tagfeed/en/tags/headlines news uom
-https://proton.me/blog/feed news company
-https://www.databricks.com/feed/ news company
-https://ooono.com/en-uk/blogs/news.atom news company ooono
-https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/claude.xml news company anthropic claude
-https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/anthropic.xml news company anthropic
-https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/stability-ai.xml news company stability
-https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/cursor-blog.xml news company cursor
 https://mbshipbrokers.com/feed/ news company mbshipbrokers shipping
-https://investor.maersk.com/rss/news-releases.xml news company maersk shipping
+https://www.seatrade-maritime.com/rss.xml news shipping
+https://gcaptain.com/feed/ news shipping
+https://www.freightos.com/feed/ news company shipping
+https://www.hellenicshippingnews.com/feed/ news shipping
+https://container-news.com/feed/ news shipping
+https://www.drycargomag.com/rss news shipping
 
-https://julienaismith.com/feed/ dogtraining blog
-https://www.scandikitchen.co.uk/feed/ scandikitchen recipes
+# AI/ML company news and blogs
+https://deepmind.google/blog/rss.xml tech longread company ai
+https://engineering.fb.com/feed/ tech longread company ai
+https://research.google/blog/rss/ tech longread company research ai
+https://www.amazon.science/index.rss tech longread company research ai datascience
+https://openai.com/news/rss.xml news company tech ai longread
+https://www.microsoft.com/en-us/research/feed/ tech longread company research ai
+https://huggingface.co/blog/feed.xml tech longread company ai
+https://mistral.ai/rss.xml tech longread company ai
+https://feeds.feedburner.com/Anthropic news company tech ai
+https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/claude.xml news company anthropic claude tech ai
+https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/anthropic.xml news company anthropic tech ai
+https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/stability-ai.xml news company stability tech ai
+https://raw.githubusercontent.com/leontloveless/ai-rss-feeds/main/feeds/cursor-blog.xml news company cursor tech ai
+https://www.databricks.com/feed/ news company databricks tech ai
+https://proton.me/blog/feed news company proton tech
+https://ooono.com/en-uk/blogs/news.atom news company ooono tech
+https://inrix.com/feed/ news company inrix tech
+https://www.uber.com/en-GB/blog/london/engineering/rss/ tech longread company
+https://eng.lyft.com/feed tech longread company
+https://aws.amazon.com/blogs/machine-learning/feed/ tech longread company mlops ai
 
----Jobs---
-https://api.lever.co/v0/postings/veo?mode=json veo company jobs
-https://api.ashbyhq.com/posting-api/job-board/KAYAK kayak company jobs
-# https://trackman.recruitee.com/api/feeds/offers.xml trackman company jobs
-https://careers.alipes.dk/jobs.rss alipes company jobs
-https://jobs.lunar.app/jobs.rss lunar company jobs
-https://careers.monta.com/jobs.rss monta company jobs
+# Forecasting and time series
+https://robjhyndman.com/hyndsight/index.xml forecast stats blog
+https://openforecast.org/feed/ forecast stats research blog
+https://rss.sciencedirect.com/publication/science/01692070 forecast stats paper
+https://onlinelibrary.wiley.com/feed/1099131X/most-recent forecast stats paper
+https://freakonometrics.hypotheses.org/feed forecast stats blog
+https://fxdiebold.blogspot.com/feeds/posts/default?alt=rss forecast stats blog
+https://davegiles.blogspot.com/feeds/posts/default?alt=rss forecast stats blog
+https://www.reddit.com/r/TimeSeriesAnalysis/.rss forecast reddit
+https://export.arxiv.org/rss/stat.ME stats arxiv paper
+https://export.arxiv.org/rss/stat.AP stats arxiv paper
+https://export.arxiv.org/rss/econ.EM forecast stats arxiv paper
+https://juliasilge.com/blog/index.xml tech skim datascience stats forecast blog
 
-# python
----python---
+# MLOps and ML engineering
+https://www.mlops.wtf/feed tech longread company mlops
+https://mlops.substack.com/feed mlops newsletter tech longread
+https://huyenchip.com/feed.xml mlops datascience blog
+https://eugeneyan.com/rss/ mlops datascience blog
+https://mlinproduction.com/feed/ mlops company blog
+https://wandb.ai/fully-connected/rss.xml mlops company blog
+https://arize.com/feed/ mlops company blog
+https://blog.kubeflow.org/feed.xml mlops company blog
+https://datatalks.club/feed.xml mlops datascience blog
+https://swirlai.substack.com/feed mlops newsletter tech longread
+https://marvelousmlops.substack.com/feed mlops newsletter tech longread
+https://decodingml.substack.com/feed mlops newsletter tech longread ai
+https://simonwillison.net/atom/everything/ mlops ai blog tech skim
+https://changelog.com/practicalai/feed mlops ai podcast
+https://twimlai.com/feed/podcast/ mlops ai podcast
+https://www.latent.space/feed mlops ai podcast
+https://dagshub.com/blog/rss/ tech longread company mlops
+https://clear.ml/feed tech longread company mlops
+https://domino.ai/feed.xml tech longread company mlops
+
+# Data science and statistics
+https://feeds.feedburner.com/FeaturedBlogPosts-DataScienceCentral tech skim datascience
+https://medium.com/feed/kaggle-blog tech longread company datascience
+https://towardsdatascience.com/feed/ tech skim datascience
+https://www.analyticsvidhya.com/feed/ tech skim datascience
+https://www.kdnuggets.com/feed tech skim datascience
+https://www.theseattledataguy.com/feed/ tech skim datascience
+https://www.unofficialgoogledatascience.com/feeds/posts/default?alt=rss tech skim datascience stats blog
+https://statmodeling.stat.columbia.edu/feed/ tech skim datascience stats blog
+https://www.r-bloggers.com/feed/ datascience stats blog skim
+https://sebastianraschka.com/rss_feed.xml datascience ai blog tech
+https://www.fast.ai/index.xml datascience ai blog tech
+https://deephaven.io/blog/rss.xml tech longread company datascience
+
+# AI research and papers
+https://export.arxiv.org/rss/cs arxiv research paper tech cs
+https://export.arxiv.org/rss/cs.AI arxiv research paper tech cs ai
+https://export.arxiv.org/rss/cs.LG arxiv research paper tech cs ai
+https://azuresilent.github.io/hf-paper-rss/feed.xml paper research tech skim
+https://bair.berkeley.edu/blog/feed.xml tech longread research ai
+https://www.nature.com/subjects/machine-learning.rss tech longread research ai
+https://thegradient.pub/rss/ ai research tech longread
+https://news.mit.edu/rss/topic/artificial-intelligence2 ai research news tech
+https://thesequence.substack.com/feed ai newsletter tech longread
+https://importai.substack.com/feed ai newsletter tech longread
+https://newsletter.theaiedge.io/feed ai newsletter tech longread
+
+# Python
 https://blog.python.org/feeds/posts/default?alt=rss news tech python
 https://realpython.com/atom.xml news tech python
 https://pyfound.blogspot.com/feeds/posts/default news tech python
 https://planetpython.org/rss20.xml news tech python
 
-# tech blogs and news
----Tech---
-https://deepmind.google/blog/rss.xml tech longread company
-https://engineering.fb.com/feed/ tech longread company
-https://feeds.feedburner.com/FeaturedBlogPosts-DataScienceCentral tech skim
-https://juliasilge.com/blog/index.xml tech skim
-https://medium.com/feed/kaggle-blog tech longread company
+# Tech news and company blogs
 https://news.ycombinator.com/rss tech skim
-https://research.google/blog/rss/ tech longread company
-https://statmodeling.stat.columbia.edu/feed/ tech skim
-https://towardsdatascience.com/feed/ tech skim
-https://www.amazon.science/index.rss tech longread company
-https://www.analyticsvidhya.com/feed/ tech skim
-https://www.kdnuggets.com/feed tech skim
-https://www.theseattledataguy.com/feed/ tech skim
-https://www.uber.com/en-GB/blog/london/engineering/rss/ tech longread company
-https://www.unofficialgoogledatascience.com/feeds/posts/default?alt=rss tech skim
-https://eng.lyft.com/feed tech longread company
-https://aws.amazon.com/blogs/machine-learning/feed/ tech longread company
-https://openai.com/blog/rss tech longread company
-https://www.microsoft.com/en-us/research/feed/ tech longread company
-https://github.blog/feed/ tech github skim
-https://github.blog/news-insights/product-news/feed/ tech github skim
+https://github.blog/feed/ tech github skim company
+https://github.blog/news-insights/product-news/feed/ tech github skim company
 https://www.theregister.com/software/ai_ml/headlines.atom news tech skim
 https://www.theregister.com/software/applications/headlines.atom news tech skim
 https://www.theregister.com/software/databases/headlines.atom news tech skim
-https://huggingface.co/blog/feed.xml tech longread company
-https://mistral.ai/rss.xml tech longread company
-
-https://www.mlops.wtf/feed tech longread company
-
-https://www.markpitblado.me/feed.xml blog tech
 https://blog.sergeantbiggs.net/posts/index.xml blog tech
-https://www.anthropic.com/news/rss.xml
 
-https://neptune.ai/blog/feed tech longread company
-https://mlops.community/feed tech longread
-https://mlops.substack.com/feed tech longread blog
-https://bair.berkeley.edu/blog/feed.xml tech longread research
-https://www.nature.com/subjects/machine-learning.rss tech longread research
-https://dagshub.com/blog/rss/ tech longread company
-https://davidstutz.de/category/blog/feed tech longread blog
-https://deephaven.io/blog/rss.xml tech longread company
-https://newsletter.theaiedge.io/feed tech longread blog
-https://decodingml.substack.com/feed tech longread blog
-https://newsletter.swirlai.com/feed tech longread blog
-https://domino.ai/feed.xml tech longread company
-https://clear.ml/feed tech longread company
-
-# papers
-# arxiv
----ArXiv---
-https://export.arxiv.org/rss/cs arxiv research cs 
-https://export.arxiv.org/rss/cs.AI arxiv research cs ai
-https://export.arxiv.org/rss/cs.LG arxiv research cs ml
-
-https://azuresilent.github.io/hf-paper-rss/feed.xml techresearch skim
-
-# linux
----Linux---
+# Linux, Arch and Neovim
 https://distrowatch.com/news/dw.xml news linux
 https://www.archlinux.org/feeds/news/ news linux arch official
 https://www.archlinux.org/feeds/packages/ news linux arch packages
-
-# misc
 https://dotfyle.com/this-week-in-neovim/rss.xml news linux nvim skim
 https://dotfyle.com/neovim/plugins/rss.xml news linux nvim skim
 https://neovim.io/news.xml news linux nvim skim
 https://terminaltrove.com/new.xml news linux tech skim
 
-# reddit
----reddit---
-https://www.reddit.com/r/linux.rss reddit linux daily 
-https://www.reddit.com/r/archlinux.rss reddit linux arch daily 
-https://www.reddit.com/r/linuxquestions.rss reddit linux daily 
-https://www.reddit.com/r/neovim.rss reddit daily 
-https://www.reddit.com/r/vim.rss reddit daily
-https://www.reddit.com/r/unixporn.rss reddit daily
+# Reddit
+https://www.reddit.com/r/linux.rss reddit linux daily
+https://www.reddit.com/r/archlinux.rss reddit linux arch daily
+https://www.reddit.com/r/linuxquestions.rss reddit linux daily
+https://www.reddit.com/r/neovim.rss reddit nvim daily
+https://www.reddit.com/r/vim.rss reddit nvim daily
+https://www.reddit.com/r/unixporn.rss reddit linux daily
+
+# Personal and recipes
+https://www.scandikitchen.co.uk/feed/ scandikitchen recipes
+
+# Tool releases
+https://github.com/Nixtla/statsforecast/releases.atom forecast release tech
+https://github.com/unit8co/darts/releases.atom forecast release tech
+https://github.com/sktime/sktime/releases.atom forecast release tech
+https://github.com/mlflow/mlflow/releases.atom mlops release tech
+https://github.com/evidentlyai/evidently/releases.atom mlops release tech
+
+---Likely broken / non-RSS ---
+# The feeds below are likely broken or are not RSS/Atom. They are kept for
+# reference and tagged with their intended category, but are not expected to
+# update.
+
+# Shipping
+https://www.lloydslist.com/rss-feeds news shipping
+https://www.lloydslist.com/rss news shipping
+https://www.joc.com/rss news shipping
+https://investor.maersk.com/rss/news-releases.xml news company maersk shipping
+
+# AI and company
+https://flyr.com/feed/ news company tech flyr
+https://openai.com/blog/rss tech longread company ai
+https://www.anthropic.com/news/rss.xml news company anthropic tech ai
+
+# MLOps
+https://neptune.ai/blog/feed tech longread company mlops
+https://mlops.community/feed tech longread mlops
+https://davidstutz.de/category/blog/feed tech longread blog mlops
+https://newsletter.swirlai.com/feed tech longread blog mlops newsletter
+
+# Personal
+https://www.markpitblado.me/feed.xml blog tech datascience
+https://julienaismith.com/feed/ dogtraining blog
