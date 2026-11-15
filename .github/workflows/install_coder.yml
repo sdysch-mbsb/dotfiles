@@ -1,4 +1,4 @@
-name: Install Work
+name: Install Coder
 on:
   workflow_call:
 jobs:
