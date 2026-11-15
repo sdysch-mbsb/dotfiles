@@ -3,7 +3,7 @@ FROM archlinux:latest
 ENV IN_DOCKER=1
 
 # Install basic dependencies
-RUN pacman -Sy --noconfirm \
+RUN pacman -Syu --noconfirm \
       stow git base-devel zsh neovim cmake \
       xorgproto libx11 libxinerama libxft \
       tree-sitter tree-sitter-cli \

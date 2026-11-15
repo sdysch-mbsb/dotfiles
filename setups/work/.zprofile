@@ -18,10 +18,6 @@ if [ -d "$HOME/google-cloud-sdk/bin" ] ; then
 	export PATH=$PATH:"$HOME/google-cloud-sdk/bin"
 fi
 
-# add doom emacs to PATH
-EMACS_DIR=$XDG_CONFIG_HOME/emacs
-[[ -d $EMACS_DIR/bin ]] && export PATH="$EMACS_DIR/bin:$PATH"
-
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
@@ -77,3 +73,8 @@ export LESS='-FRX'
 # pagers
 export MANPAGER='less -R'
 export PAGER='less -R'
+
+# add doom emacs to PATH
+EMACS_DIR=$XDG_CONFIG_HOME/emacs
+[[ -d $EMACS_DIR/bin ]] && export PATH="$EMACS_DIR/bin:$PATH"
+
