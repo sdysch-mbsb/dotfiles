@@ -9,7 +9,7 @@ repos:
         language: python
         types: [shell]
         require_serial: true # shellcheck can detect sourcing this way
-        files: '^(setups/(arch|work|mbsb|common)/\.local/bin/|install_scripts/[^/]+\.sh$|setups/arch/\.config/waybar/scripts/)'
+        files: '^(setups/(arch|coder|mbsb|common)/\.local/bin/|install_scripts/[^/]+\.sh$|setups/arch/\.config/waybar/scripts/)'
 
   # gitleaks
   - repo: https://github.com/gitleaks/gitleaks

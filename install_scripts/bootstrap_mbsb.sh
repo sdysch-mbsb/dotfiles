@@ -2,7 +2,6 @@
 # bootstrap vm
 DOTFILES_REPO="https://github.com/sdysch-mbsb/dotfiles"
 DOTFILES_DIR="$HOME/dotfiles/"
-PACKAGE_INSTALLPATH="dotfiles/install_scripts/packages/install"
 
 NVIM_VERSION="v0.12.6"
 TREESITTER_VERSION="v0.26.3"
@@ -63,10 +62,7 @@ _install_configs() {
 
 _install_fonts() {
 	log 'Installing fonts'
-	pushd "$DOTFILES_DIR" >/dev/null || exit
-	# shellcheck disable=SC1090
-	source "${PACKAGE_INSTALLPATH}_fonts.sh"
-	popd >/dev/null || exit
+	sh "${DOTFILES_DIR%/}/install_scripts/install_fonts.sh"
 }
 
 _change_shell_to_zsh() {

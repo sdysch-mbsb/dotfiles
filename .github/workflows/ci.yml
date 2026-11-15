@@ -29,6 +29,20 @@ jobs:
       - shell
     uses: ./.github/workflows/install_arch.yml
 
+  install_work:
+    needs:
+      - python
+      - lua
+      - shell
+    uses: ./.github/workflows/install_coder.yml
+
+  install_mbsb:
+    needs:
+      - python
+      - lua
+      - shell
+    uses: ./.github/workflows/install_mbsb.yml
+
   docker_build:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: install_arch

@@ -24,12 +24,7 @@ clone_if_missing() {
 
 _install_fonts() {
 	log 'Installing powerline fonts'
-	# tmp dir
-	tmpdir=$(mktemp -d)
-	git clone --depth=1 https://github.com/powerline/fonts.git "$tmpdir/fonts"
-	pushd "$tmpdir/fonts"
-	./install.sh
-	popd > /dev/null
+	sh "$(dirname "${BASH_SOURCE[0]}")/install_fonts.sh"
 }
 
 _change_shell_to_zsh() {

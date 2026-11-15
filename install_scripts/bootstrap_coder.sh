@@ -2,7 +2,6 @@
 # bootstrap coder instance
 DOTFILES_REPO="https://github.com/sdysch-flyr/dotfiles"
 DOTFILES_DIR="$HOME/dotfiles/"
-PACKAGE_INSTALLPATH="dotfiles/install_scripts/packages/install"
 
 NVIM_VERSION="v0.11.5"
 TREESITTER_VERSION="v0.26.3"
@@ -40,17 +39,14 @@ _install_configs() {
 		git clone --depth=1 "$DOTFILES_REPO" "$DOTFILES_DIR"
 	fi
 	pushd "$DOTFILES_DIR/setups" >/dev/null || exit
-	stow --no-folding flyr --target="$HOME"
+	stow --no-folding coder --target="$HOME"
 	stow --no-folding common --target="$HOME"
 	popd >/dev/null || exit
 }
 
 _install_fonts() {
 	log 'Installing fonts'
-	pushd "$DOTFILES_DIR" >/dev/null || exit
-	# shellcheck disable=SC1090
-	source "${PACKAGE_INSTALLPATH}_fonts.sh"
-	popd >/dev/null || exit
+	sh "${DOTFILES_DIR%/}/install_scripts/install_fonts.sh"
 }
 
 _install_vim() {

@@ -1,0 +1,44 @@
+name: Install MBSB
+on:
+  workflow_call:
+jobs:
+  Installation:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          sudo apt-get update -y
+          sudo apt-get install -y stow zsh wget fontconfig
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          mkdir -p "$HOME/.local/bin"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Prepare dotfiles checkout
+        run: |
+          set -euo pipefail
+          mkdir -p "$HOME/dotfiles"
+          cp -a "$GITHUB_WORKSPACE/." "$HOME/dotfiles/"
+
+      - name: Run bootstrap script
+        run: |
+          set -euo pipefail
+          bash "$HOME/dotfiles/install_scripts/bootstrap_mbsb.sh"
+
+      - name: "Check zsh"
+        run: zsh -i -c 'echo "zsh okay"'
+
+      - name: "Check nvim"
+        run: nvim --headless -c 'echo "nvim okay"' -c 'qa!'
+
+      - name: "Check installed tools"
+        run: |
+          tree-sitter --version
+          eza --version
+          rg --version
+          starship --version
+          pre-commit --version
