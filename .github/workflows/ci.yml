@@ -44,6 +44,7 @@ jobs:
     uses: ./.github/workflows/install_mbsb.yml
 
   docker_build:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    # bit hacky, prevent docker builds on any repo forks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'sdysch/dotfiles'
     needs: install_arch
     uses: ./.github/workflows/docker.yml
